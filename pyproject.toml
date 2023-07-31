@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "learnable-triangulation-pytorch"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10 <3.11"
+numpy = "^1.22.3"
+tensorboardx = "^2.6.1"
+h5py = "^3.9.0"
+scipy = "^1.8"
+six = "^1.16.0"
+opencv-python = "^4.8.0.74"
+pyyaml = "^6.0.1"
+scikit-image = "^0.21.0"
+matplotlib = "^3.7.2"
+easydict = "^1.10"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

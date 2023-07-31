@@ -169,7 +169,7 @@ for subject_idx, subject in enumerate(retval['subject_names']):
         for camera_idx, camera in enumerate(retval['camera_names']):
             camera_path = os.path.join(action_path, camera)
             if os.path.isdir(camera_path):
-                frame_idxs = sorted([int(name[4:-4])-1 for name in os.listdir(camera_path)])
+                frame_idxs = sorted([int(name[4:-4])-1 for name in os.listdir(camera_path) if not name.startswith('.')])
                 assert len(frame_idxs) > 15, 'Too few frames in %s' % camera_path # otherwise WTF
                 break
         else:

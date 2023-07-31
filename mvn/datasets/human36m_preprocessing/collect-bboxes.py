@@ -53,7 +53,7 @@ def load_bboxes(data_path, subject, action, camera):
             data_path,
             subject,
             'MySegmentsMat',
-            'ground_truth_bb',
+            'ground_truth_bs',
             '%s.%s.mat' % (corrected_action, camera))
 
         with h5py.File(bboxes_path, 'r') as h5file:
@@ -83,14 +83,19 @@ pool = multiprocessing.Pool(num_processes)
 async_errors = []
 
 for subject in subjects:
+    print(subject)
     subject_path = os.path.join(data_path, subject)
     actions = os.listdir(subject_path)
+    print(actions)
     try:
         actions.remove('MySegmentsMat') # folder with bbox *.mat files
-    except ValueError:
+    except ValueError as ex:
+        print(ex)
         pass
 
+    print(actions)
     for action in actions:
+        print("In loop", action)
         cameras = '54138969', '55011271', '58860488', '60457274'
 
         for camera in cameras:
